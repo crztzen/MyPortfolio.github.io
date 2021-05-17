@@ -1,0 +1,40 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar-brand {
+  font-family: "Playball", cursive;
+}
+
+.jumbotron {
+  padding-top: 6rem;
+  background-color: #ffce99;
+}
+
+#skills {
+  background-color: #ffce99;
+}
+
+.col-center {
+  justify-content: center;
+}
+
+#contact {
+  background-color: #ffce99;
+}
+
+footer {
+  background-color: #ffa94d;
+}
+
+.icon-link {
+  text-decoration: none;
+}
+
+.instagram {
+  margin-right: 8px;
+}
+
+section {
+  padding-top: 6rem;
+}

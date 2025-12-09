@@ -1,0 +1,637 @@
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f1f0f0;
+  color: #111;
+  padding-top: 36px;
+}
+
+section {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================
+   FLOATING NAVBAR - FIXED STAY ON SCROLL
+========================= */
+
+.custom-navbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  max-width: 1000px;
+  width: calc(100% - 32px);
+
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(14px);
+
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+/* INNER */
+.navbar-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* BRAND */
+.custom-navbar .navbar-brand {
+  color: #f9fafb !important;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+/* LINKS */
+.custom-navbar .nav-link {
+  color: #e5e7eb !important;
+  font-weight: 500;
+  position: relative;
+  transition: 0.25s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #fb923c !important;
+}
+
+/* UNDERLINE */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1.5px;
+  background: #fb923c;
+  transition: 0.25s ease;
+}
+
+.custom-navbar .nav-link:hover::after {
+  width: 100%;
+}
+
+/* SCROLL STATE */
+.custom-navbar.scrolled {
+  background: rgba(17, 24, 39, 0.96);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+#hamburger-white {
+  color: #ffffff;
+}
+
+/* =========================
+   HERO CORE LAYOUT
+========================= */
+
+.hero-section {
+  padding: 140px 0 160px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  /* VISUAL BACKGROUND */
+  background: radial-gradient(circle at top, rgba(251, 146, 60, 0.18), transparent 60%);
+}
+
+.hero-title {
+  font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.hero-section p {
+  color: #666;
+  max-width: 520px;
+  margin: 16px auto 0;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   HERO BUTTON
+========================= */
+
+.btn-hero {
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 12px 30px;
+  margin-top: 28px;
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ✅ EFEK NAIK YANG KELIATAN JELAS */
+.btn-hero:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ SAAT DIKLIK TERASA "EMPUK" */
+.btn-hero:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12), inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   HERO ANIMATION
+========================= */
+
+.hero-title,
+.hero-section p,
+.btn-hero {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroFadeUp 0.9s ease forwards;
+}
+
+.hero-section p {
+  animation-delay: 0.2s;
+}
+
+.btn-hero {
+  animation-delay: 0.4s;
+}
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   HERO DECORATIVE MODERN
+========================= */
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: -120px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.25), transparent 65%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: glowFloat 10s ease-in-out infinite alternate;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -140px;
+  right: -140px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.18), transparent 70%);
+  filter: blur(60px);
+  z-index: -1;
+  animation: glowFloat 12s ease-in-out infinite alternate;
+}
+
+@keyframes glowFloat {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-40px);
+  }
+}
+
+/* ===========================
+   PROFILE SECTION – NEUMORPHISM
+=========================== */
+
+.profile-section {
+  padding: 80px 0;
+}
+
+.profile-box {
+  background: #e6e9f2;
+  border-radius: 30px;
+  padding: 50px;
+  color: #1e293b;
+  box-shadow: 12px 12px 24px #c3c7d1, -12px -12px 24px #ffffff;
+}
+
+/* ===========================
+   TAB MENU
+=========================== */
+
+.profile-tabs {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  background: #e6e9f2;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 14px;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  box-shadow: inset 4px 4px 8px #c3c7d1, inset -4px -4px 8px #ffffff;
+  transition: 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #0f172a;
+}
+
+.tab-btn.active {
+  color: #0f172a;
+  box-shadow: 6px 6px 12px #c3c7d1, -6px -6px 12px #ffffff;
+}
+
+/* LINE */
+.profile-line {
+  width: 100%;
+  height: 3px;
+  background: #d1d5e0;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* ===========================
+   CONTENT TRANSITION
+=========================== */
+
+.profile-content-wrapper {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.profile-content {
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s ease;
+  pointer-events: none;
+}
+
+.profile-content.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===========================
+   ABOUT LAYOUT
+=========================== */
+
+.about-layout {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.about-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 8px 8px 16px #c3c7d1, -8px -8px 16px #ffffff;
+}
+
+.about-text {
+  flex: 2;
+  max-height: none;
+  overflow: visible;
+}
+
+.about-text h2 {
+  margin-bottom: 12px;
+}
+
+.about-text p {
+  color: #475569;
+  line-height: 1.8;
+}
+
+/* ✅ SCROLL KHUSUS TABLET & HP */
+@media (max-width: 992px) {
+  .about-text {
+    max-height: 230px;
+    overflow-y: auto;
+    padding-right: 12px;
+  }
+
+  .about-text::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .about-text::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+  }
+}
+
+/* ===========================
+   EXPERIENCE
+=========================== */
+
+.experience-item {
+  margin-bottom: 24px;
+}
+
+.experience-item h4 {
+  margin-bottom: 6px;
+}
+
+.experience-item span {
+  font-size: 14px;
+}
+
+.experience-desc {
+  padding-left: 18px;
+}
+
+.experience-desc li {
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+/* ===========================
+   SKILLS
+=========================== */
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills-grid span {
+  background: #e6e9f2;
+  color: #1e293b;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 4px 4px 8px #c3c7d1, -4px -4px 8px #ffffff;
+}
+
+/* ===========================
+   ✅ SCROLL ONLY ON TABLET & HP
+=========================== */
+
+/* DEFAULT DESKTOP: NO SCROLL */
+.about-text,
+#experience {
+  max-height: none;
+  overflow: visible;
+}
+
+/* TABLET & HP: AKTIFKAN SCROLL ISI KONTEN */
+@media (max-width: 992px) {
+  .about-text {
+    max-height: 220px;
+    overflow-y: auto;
+    padding-right: 10px;
+  }
+
+  #experience {
+    max-height: 360px;
+    overflow-y: auto;
+    padding-right: 12px;
+  }
+
+  .about-text::-webkit-scrollbar,
+  #experience::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .about-text::-webkit-scrollbar-thumb,
+  #experience::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 10px;
+  }
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .about-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-box {
+    padding: 32px;
+  }
+}
+
+/* ===============================
+   PORTFOLIO SECTION VISUAL
+================================ */
+
+#portfolio {
+  background: #f8f9fa; /* bg-light dari Bootstrap */
+  padding-top: 100px;
+}
+
+.portfolio-section {
+  padding: 80px 0;
+}
+
+/* Card besar per project */
+.portfolio-item {
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+  padding: 48px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+  transition: 0.35s ease;
+}
+
+/* Hover floating */
+.portfolio-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.1);
+}
+
+/* Gambar */
+.portfolio-img-wrapper {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ececec, #f7f7f7);
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: 0.4s ease;
+}
+
+/* Zoom gambar pas hover */
+.portfolio-item:hover .portfolio-img {
+  transform: scale(1.06);
+}
+
+/* Teks */
+.portfolio-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.portfolio-desc {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.75;
+}
+
+.btn-main {
+  background: #111;
+  color: white;
+  border-radius: 8px;
+  padding: 12px 28px;
+}
+
+.btn-main:hover {
+  background: #000;
+  color: white;
+}
+
+/* ===============================
+   PORTFOLIO SCROLL ANIMATION
+================================ */
+
+.reveal-left,
+.reveal-right {
+  opacity: 0;
+  transform: translateX(80px);
+  transition: all 0.9s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+.reveal-right {
+  transform: translateX(-80px);
+}
+
+.reveal-show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===============================
+   VIEW MORE BUTTON – PORTFOLIO (REVISI)
+================================ */
+
+.btn-portfolio {
+  display: inline-block;
+  padding: 18px 58px; /* ✅ LEBIH BESAR & PANJANG */
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.05rem; /* ✅ TEKS SEDIKIT LEBIH BESAR */
+  text-decoration: none;
+  color: #111;
+  background: #ffffff;
+  margin-bottom: 50px; /* ✅ JARAK KE SECTION BAWAH */
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), inset 0 -2px 0 rgba(0, 0, 0, 0.08);
+
+  transition: all 0.25s ease;
+}
+
+/* ✅ EFEK NAIK */
+.btn-portfolio:hover {
+  transform: translateY(-7px) scale(1.05);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.2), inset 0 -2px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ EFEK TEKAN */
+.btn-portfolio:active {
+  transform: translateY(-3px) scale(0.97);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16), inset 0 3px 6px rgba(0, 0, 0, 0.22);
+}
+
+/* === CONTACT SECTION VISUAL PREMIUM === */
+
+.contact-section {
+  width: 100%;
+  padding: 120px 16px;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.03), transparent 60%);
+}
+
+.contact-frame {
+  width: 100%;
+  max-width: 1100px;
+  padding: 80px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+/* BIG BUT ELEGANT TITLE */
+.contact-title {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+/* DESCRIPTION */
+.contact-desc {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+/*Photo Sizing*/
+.photo-size {
+  max-width: 280px;
+}
+
+/* BUTTON UPGRADE */
+.contact-btn {
+  padding: 12px 32px;
+  border-radius: 40px;
+  transition: 0.25s ease;
+}
+
+.contact-btn:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 40px 0;
+  font-size: 14px;
+  color: #777;
+}
